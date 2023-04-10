@@ -1,3 +1,4 @@
+DROP TABLE IF EXISTS pizzas;
 -- Створіть таблицю “pizza” (“id”, “name”, “price”, “diameter”). Валюту не враховуємо!
 CREATE TABLE pizzas(
     id SERIAL PRIMARY KEY,
@@ -9,21 +10,21 @@ CREATE TABLE pizzas(
 -- Завдання на INSERT
 -- Додати нову піцу Маргарита, діаметр 18, ціна 50,4грн.
 INSERT INTO pizzas(name, diameter, price)
-VALUES ("Маргарита", 18, 54.4)
+VALUES ('Маргарита', 18, 54.4);
 
 -- Додати нову піцу Карбонара, діаметр 28, ціна 81грн.
 INSERT INTO pizzas(name, diameter, price)
-VALUES ("Карбонара", 28, 81);
+VALUES ('Карбонара', 28, 81);
 
 -- Додайте дві нові піци одним запитом: Цезар, діаметр 38, ціна 149грн, Пепероні, діаметр 32, ціна 116грн
 INSERT INTO pizzas(name, diameter, price)
-VALUES ("Цезар", 38, 149), ("Пепероні", 32, 116);
+VALUES ('Цезар', 38, 149), ('Пепероні', 32, 116);
 
 -- Завдання на UPDATE
 -- Поставте ціну Маргаріті 53грн.
 UPDATE pizzas
 SET price = 53
-WHERE name = "Маргарита";
+WHERE name = 'Маргарита';
 
 -- Піца з id=4 поставте діаметр 30, поверніть усі оновлені данні.
 UPDATE pizzas
@@ -44,8 +45,8 @@ WHERE id BETWEEN 2 AND 5;
 
 -- Змініть Цезар на 4 сири та поставте ціну 180.
 UPDATE pizzas
-SET name = "4 сири" AND price = 180
-WHERE name = "Цезар";
+SET price = 180, name = '4 сири'
+WHERE name = 'Цезар';
 
 -- Завдання на SELECT
 -- Вибрати піцу з id=3.
@@ -66,17 +67,17 @@ WHERE price != 130;
 -- Дізнайтесь ціну і діаметр Пепероні.
 SELECT name, price
 FROM pizzas
-WHERE name = "Пепероні";
+WHERE name = 'Пепероні';
 
 -- Вибрати піцу під назвою Маргарита.
 SELECT id, name, price, diameter
 FROM pizzas
-WHERE name = "Маргарита";
+WHERE name = 'Маргарита';
 
 -- Вибрати всі піци, крім тієї, яка називається Карбонара.
 SELECT id, name, price, diameter
 FROM pizzas
-WHERE name != "Карбонара";
+WHERE name != 'Карбонара';
 
 -- Вибрати всі піци діаметром 22 та ціною менше 150грн.
 SELECT id, name, price, diameter
@@ -105,7 +106,7 @@ WHERE id = 3;
 
 -- Видаліть Пепероні, поверніть усі видалені данні.
 DELETE FROM pizzas 
-WHERE name = "Пепероні"
+WHERE name = 'Пепероні'
 RETURNING *;
 
 -- Видаліть всі піци, які мають діаметр 18, поверніть усі видалені данні.
