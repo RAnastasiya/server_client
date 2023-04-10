@@ -92,7 +92,7 @@ WHERE diameter BETWEEN 25 AND 33;
 -- Вибрати піци з діаметром від 25 до 33 або з ціною від 100 до 200 грн.
 SELECT id, name, price, diameter
 FROM pizzas
-WHERE diameter BETWEEN 26 AND 32 AND price BETWEEN 101 AND 199;
+WHERE diameter BETWEEN 26 AND 32 OR price BETWEEN 101 AND 199;
 
 -- Вибрати всі піци діаметром 22 або 180грн.
 SELECT id, name, price, diameter
